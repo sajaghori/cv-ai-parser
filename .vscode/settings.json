@@ -1,0 +1,15 @@
+{
+	"editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.autoSave": "off",
+	"files.eol": "auto",
+	"eslint.validate": ["javascript", "typescript", "svelte"],
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true
+	},
+	"javascript.format.semicolons": "remove",
+	"typescript.format.semicolons": "remove"
+}

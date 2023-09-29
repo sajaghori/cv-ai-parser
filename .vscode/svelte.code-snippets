@@ -1,0 +1,16 @@
+{
+	"Basic Component": {
+		"prefix": ["comp"],
+		"body": [
+			"<script lang=\"ts\" context=\"module\">",
+			"",
+			"</script>",
+			"<script lang=\"ts\">",
+			"",
+			"</script>",
+			"",
+			""
+		],
+		"description": "A basic typescript and scss svelte component"
+	}
+}
