@@ -43,14 +43,16 @@ export const load: PageServerLoad = async ({ params: { file_key } }) => {
 			], 
 			"experiences": [
 				{
-					"title": "Software Engineer",
+					"jobTitle": "Software Engineer",
 					"company": "XXX",
 					"startDate": "June 2020",
 					"endDate": "August 2023",
 					"location": "San Francisco, CA",
 					"description": "I worked on the XXX team, where I built XXX using XXX."
 				}
-			]. Can you parse it into a JSON? Return only the JSON.`
+			]. Can you parse it into a JSON? Return only the JSON. Please sort show the recent experiences and educations first. 
+			Be sure that the job title is valid, e.g. "Software Engineer" is valid, but "Software" is not. 
+			If the job title is not valid, then do not return it.`
 			}
 		]
 	})

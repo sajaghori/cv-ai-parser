@@ -4,6 +4,7 @@
 <script lang="ts">
 	import MaxWidthWrapper from '$components/MaxWidthWrapper.svelte'
 	import UploadZone from '$components/UploadZone.svelte'
+	import OpenAIIcon from '$components/OpenAIIcon.svelte'
 </script>
 
 <!-- introduction -->
@@ -17,8 +18,9 @@
 	<h1 class="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
 		Parse your <span class="text-blue-600">CV</span>
 	</h1>
-	<p class="mt-5 max-w-prose text-zinc-700 sm:text-lg">
+	<p class="mt-5 flex max-w-prose gap-2 text-zinc-700 sm:text-lg">
 		Powered by <span class="text-green-600">OpenAI</span>
+		<OpenAIIcon class="h-7 w-7" />
 	</p>
 </MaxWidthWrapper>
 
