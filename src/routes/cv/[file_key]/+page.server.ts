@@ -8,8 +8,6 @@ const openai = new OpenAI({
 	apiKey: OPENAI_API_KEY
 })
 
-export const prerender = false
-
 export const load: PageServerLoad = async ({ params: { file_key } }) => {
 	console.info('file_key', file_key)
 
@@ -21,7 +19,6 @@ export const load: PageServerLoad = async ({ params: { file_key } }) => {
 
 	const chatCompletion = await openai.chat.completions.create({
 		model: 'gpt-3.5-turbo',
-		temperature: 0.6,
 		messages: [
 			{
 				role: 'system',
@@ -31,7 +28,29 @@ export const load: PageServerLoad = async ({ params: { file_key } }) => {
 			${content}
 
 			\`\`\`
-			I want the firstName, lastName, email (only if the format is correct), phoneNumber (if present, concat the numbers), education (if present), experience (if present) in a JSON format. Can you parse it into a JSON for me? Return only the JSON.`
+			I want the provided resume to be parsed and returned in a JSON format. The JSON should contain the following fields:
+			"firstName", 
+			"lastName", 
+			"email" (only if the format is correct), 
+			"phoneNumber" (if present, concat the numbers), 
+			"educations": [
+				{
+					"degree": "Bachelor of Science in Computer Science",
+					"school": "XXX University",
+					"startDate": "June 2020",
+					"endDate": "August 2023",
+				}
+			], 
+			"experiences": [
+				{
+					"title": "Software Engineer",
+					"company": "XXX",
+					"startDate": "June 2020",
+					"endDate": "August 2023",
+					"location": "San Francisco, CA",
+					"description": "I worked on the XXX team, where I built XXX using XXX."
+				}
+			]. Can you parse it into a JSON? Return only the JSON.`
 			}
 		]
 	})
