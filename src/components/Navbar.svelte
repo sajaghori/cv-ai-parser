@@ -11,7 +11,7 @@
 	<MaxWidthWrapper>
 		<div class="flex h-14 items-center justify-between border-b border-zinc-200">
 			<a class="z-40 flex font-semibold" href="/">
-				<span>CV Ai Parser.</span>
+				<span>CV AI Parser.</span>
 			</a>
 		</div>
 	</MaxWidthWrapper>

@@ -12,9 +12,25 @@
 	export let data: PageData
 
 	let ready = false
+	let parsedCV = 'Waiting for the CV to be parsed by gpt-3.5...'
 
 	// wait for the object in the bucket to be accessible
-	onMount(() => setTimeout(() => (ready = true), 750))
+	onMount(() => {
+		fetch(`/api/chat`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ content: data.rawContent })
+		})
+			.then((res: Response) => res.json())
+			.then((data: { parsedCV: string }) => {
+				parsedCV = data.parsedCV
+			})
+			.catch(console.error)
+
+		setTimeout(() => (ready = true), 750)
+	})
 
 	const onCVDelete = () => {
 		fetch(`/api/cv/${$page.params['file_key']}`, {
@@ -31,7 +47,7 @@
 	{#if ready}
 		<div class="flex w-full gap-5">
 			<PdfViewer pdfUrl={getS3FileUrl($page.params['file_key'])} />
-			<Textarea bind:value={data.text}></Textarea>
+			<Textarea bind:value={parsedCV}></Textarea>
 		</div>
 	{:else}
 		<p class="flex h-full w-full items-center justify-center text-lg">
