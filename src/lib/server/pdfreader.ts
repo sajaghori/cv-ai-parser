@@ -9,10 +9,8 @@ export const readPdf = (file: Buffer): Promise<string> => {
 				console.error('error:', err)
 				reject(err)
 			} else if (!item) {
-				console.warn('end of file')
 				resolve(items.join(' '))
 			} else if (item.text) {
-				console.info('item.text', item.text)
 				items.push(item.text)
 			}
 		})

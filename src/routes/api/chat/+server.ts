@@ -8,8 +8,7 @@ const openai = new OpenAI({
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { content } = (await request.json()) as { content: string }
-
-	console.info('Called with content', content)
+	console.info('Chat endpoint called')
 
 	const chatCompletion = await openai.chat.completions.create({
 		model: 'gpt-3.5-turbo',
@@ -50,6 +49,8 @@ export const POST: RequestHandler = async ({ request }) => {
 			}
 		]
 	})
+
+	console.info('Chat request completed successfully')
 
 	return new Response(
 		JSON.stringify({

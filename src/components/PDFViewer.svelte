@@ -1,7 +1,5 @@
 <script lang="ts">
 	export let pdfUrl: string
-
-	console.info('Meow', pdfUrl)
 </script>
 
 <iframe

@@ -49,8 +49,6 @@ export const deleteFileFromS3 = async (file_key: string): Promise<void> => {
 			Key: file_key
 		})
 	)
-
-	console.info('Deleted file from S3:', file_key)
 }
 
 export const getFileFromS3 = async (file_key: string): Promise<Buffer> => {
