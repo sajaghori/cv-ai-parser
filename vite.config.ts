@@ -3,12 +3,12 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	server: {
-		port: 3000
-	},
-	preview: {
-		port: 3000
-	},
+	// server: {
+	// 	port: 3000
+	// },
+	// preview: {
+	// 	port: 3000
+	// },
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
